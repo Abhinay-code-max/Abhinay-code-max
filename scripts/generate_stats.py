@@ -127,7 +127,7 @@ def wipe(cid, x, y, w, h, delay, dur=REVEAL):
 
 def label(x, y, text, size=11, cls="m-f", anchor="start", extra=""):
     a = f' text-anchor="{anchor}"' if anchor != "start" else ""
-    safe_text = str(text).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;") if "&amp;" not in str(text) else str(text)
+    safe_text = str(text).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
     return (f'<text x="{x}" y="{y}" class="{cls}" font-size="{size}"{a}'
             f'{extra}>{safe_text}</text>')
 
@@ -265,8 +265,8 @@ def draw_streak(s):
     cells = []
     for k, lab in (("current", "current streak"), ("longest", "longest streak")):
         r = s[k]
-        span = (f"{pretty(r['start'])} &#8211; {pretty(r['end'])}"
-                if r["length"] else "&#8212;")
+        span = (f"{pretty(r['start'])} \u2013 {pretty(r['end'])}"
+                if r["length"] else "\u2014")
         cells.append((r["length"], lab, span))
 
     p = [head(WIDTH, H)]
@@ -498,19 +498,55 @@ def draw_leetcode(lc):
 
 # ----------------- RECENT ACTIVITY -----------------
 
-def fetch_recent_activity(login):
+def fetch_recent_activity(login, token):
     url = f"https://api.github.com/users/{login}/events/public"
-    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+    req = urllib.request.Request(
+        url, headers={"User-Agent": f"{login}-profile-stats",
+                      "Authorization": f"bearer {token}"})
     try:
         with urllib.request.urlopen(req, timeout=10) as resp:
             events = json.loads(resp.read().decode("utf-8"))
-            for ev in events:
-                if ev.get("type") == "PushEvent":
-                    repo_name = ev.get("repo", {}).get("name", "")
-                    created_at = ev.get("created_at", "")
-                    commits = ev.get("payload", {}).get("commits", [])
-                    msg = commits[0].get("message", "").split("\n")[0] if commits else "Pushed code"
-                    return {"repo": repo_name, "msg": msg, "date": created_at}
+        for ev in events:
+            t = ev.get("type", "")
+            repo_name = ev.get("repo", {}).get("name", "")
+            created_at = ev.get("created_at", "")
+            payload = ev.get("payload", {})
+
+            if t == "PushEvent":
+                commits = payload.get("commits", [])
+                msg = commits[0].get("message", "").split("\n")[0] if commits else "Pushed code"
+                return {"repo": repo_name, "kind": "Latest push to", "msg": msg, "date": created_at}
+
+            if t == "PullRequestEvent":
+                pr = payload.get("pull_request", {})
+                action = payload.get("action", "updated")
+                title = pr.get("title", "Pull request")
+                kind = f"PR {action} in"
+                return {"repo": repo_name, "kind": kind, "msg": title, "date": created_at}
+
+            if t == "IssuesEvent":
+                issue = payload.get("issue", {})
+                action = payload.get("action", "updated")
+                title = issue.get("title", "Issue")
+                kind = f"Issue {action} in"
+                return {"repo": repo_name, "kind": kind, "msg": title, "date": created_at}
+
+            if t == "CreateEvent":
+                ref_type = payload.get("ref_type", "branch")
+                ref = payload.get("ref") or repo_name.split("/")[-1]
+                return {"repo": repo_name, "kind": f"Created {ref_type} in",
+                        "msg": ref, "date": created_at}
+
+            if t == "ReleaseEvent":
+                release = payload.get("release", {})
+                tag = release.get("tag_name", "new release")
+                name = release.get("name") or tag
+                return {"repo": repo_name, "kind": "Released", "msg": name, "date": created_at}
+
+            if t == "ForkEvent":
+                forkee = payload.get("forkee", {}).get("full_name", repo_name)
+                return {"repo": repo_name, "kind": "Forked", "msg": forkee, "date": created_at}
+
     except Exception as e:
         print(f"Events fetch notice: {e}")
     return None
@@ -544,10 +580,11 @@ def draw_activity(act):
     
     if act:
         repo = act["repo"].replace("Abhinay-code-max/", "")
+        kind = act.get("kind", "Latest activity in")
         msg = (act["msg"][:42] + "...") if len(act["msg"]) > 42 else act["msg"]
         t = time_ago(act["date"])
         p.append(f'<g opacity="0">{fade(0.10)}'
-                 + label(42, 28, f"Latest push to {repo}", 12, "e-f", extra=' font-weight="600"')
+                 + label(42, 28, f"{kind} {repo}", 12, "e-f", extra=' font-weight="600"')
                  + label(42, 48, f'"{msg}"', 11, "m-f")
                  + label(WIDTH - 18, 38, t, 11, "a-f", "end")
                  + '</g>')
@@ -562,29 +599,29 @@ def draw_activity(act):
 # ----------------- SELF-TYPING TERMINAL -----------------
 
 def draw_terminal():
-    W, H = WIDTH, 178
+    W = WIDTH
+    lines = [
+        ("$ whoami", "> Abhinay Kandrika [AI & Full-Stack Engineer]", 0.30, 0.60),
+        ("$ current_focus", "> Autonomous AI Agents | Scalable Backends | Distributed Web", 1.10, 0.75),
+        ("$ status --live", "> [ACTIVE] Shipping fast & building intelligent systems", 2.05, 0.65),
+    ]
+    H = 98 + (len(lines) - 1) * 40  # grows automatically when lines are added
     p = [head(W, H)]
-    
+
     p.append(f'<rect x="0" y="0" width="{W}" height="{H}" rx="8" class="card-bg card-border" stroke-width="1"/>')
-    
+
     p.append(f'<path d="M 0 8 Q 0 0 8 0 L {W-8} 0 Q {W} 0 {W} 8 L {W} 28 L 0 28 Z" class="card-bg"/>')
     p.append(f'<line x1="0" y1="28" x2="{W}" y2="28" class="card-border" stroke-width="1"/>')
-    
+
     p.append('<circle cx="16" cy="14" r="5" fill="#ff5f56"/>')
     p.append('<circle cx="32" cy="14" r="5" fill="#ffbd2e"/>')
     p.append('<circle cx="48" cy="14" r="5" fill="#27c93f"/>')
     p.append(label(W//2, 18, "abhinay@core-system: ~ (zsh)", 11, "m-f", "middle"))
 
-    lines = [
-        ("$ whoami", "> Abhinay Kandrika [AI &amp; Full-Stack Engineer]", 0.30, 0.60),
-        ("$ current_focus", "> Autonomous AI Agents | Scalable Backends | Distributed Web", 1.10, 0.75),
-        ("$ status --live", "> [ACTIVE] Shipping fast &amp; building intelligent systems", 2.05, 0.65),
-    ]
-
     for i, (cmd, output, d_cmd, d_out) in enumerate(lines):
         y_cmd = 52 + i * 40
         y_out = 68 + i * 40
-        
+
         cid = f"tcmd{i}"
         w_cmd = len(cmd) * 7.2 + 10
         clip, cursor = wipe(cid, 18, y_cmd - 11, w_cmd, 15, d_cmd, 0.50)
@@ -593,7 +630,7 @@ def draw_terminal():
                  + label(18, y_cmd, cmd, 12, "a-f", extra=' font-weight="600"')
                  + '</g>')
         p.append(cursor)
-        
+
         p.append(f'<g opacity="0">{fade(d_cmd + 0.55, 0.40)}'
                  + label(32, y_out, f"  {output}", 11, "e-f")
                  + '</g>')
@@ -625,7 +662,7 @@ def main():
     user = fetch_github(login, token)
     s = summarise_github(user)
     lc = fetch_leetcode(lc_user)
-    act = fetch_recent_activity(login)
+    act = fetch_recent_activity(login, token)
 
     files = {
         "stats.svg": draw_stats(s),

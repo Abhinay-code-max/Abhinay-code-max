@@ -1,0 +1,14 @@
+# Dependencies for scripts/make_portrait.py
+# Run once, locally -- NOT used by the daily GitHub Actions workflow.
+# The stats generator (generate_stats.py) uses stdlib only.
+#
+# Install:
+#   pip install -r requirements.txt
+#
+# First run will download the ~176 MB background-removal model (rembg).
+
+pillow>=10.0
+numpy>=1.24
+opencv-python-headless>=4.8
+rembg>=2.0
+onnxruntime>=1.16

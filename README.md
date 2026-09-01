@@ -7,7 +7,7 @@
 [github](https://github.com/Abhinay-code-max) &nbsp;·&nbsp;
 [leetcode](https://leetcode.com/u/abhinaycodemax/) &nbsp;·&nbsp;
 [linkedin](https://www.linkedin.com/in/abhinay-kandrika-5239a442a/) &nbsp;·&nbsp;
-[instagram](https://www.instagram.com/) &nbsp;·&nbsp;
+[instagram](https://www.instagram.com/abhinay_2207/) &nbsp;·&nbsp;
 [email](mailto:abhinay2207@gmail.com)
 
 <br/><br/>
@@ -49,7 +49,7 @@ distributed backend architectures.
 
 <img src="./hd-projects.svg" width="620" alt="projects"/>
 
-**[JARVIS-FOR-WEBISTE](https://github.com/Abhinay-code-max/JARVIS-FOR-WEBISTE)** &nbsp;·&nbsp; <samp>python, ai</samp><br>
+**[JARVIS-FOR-WEBSITE](https://github.com/Abhinay-code-max/JARVIS-FOR-WEBISTE)** &nbsp;·&nbsp; <samp>python, ai</samp><br>
 Intelligent voice and text assistant for web environments and task automation.
 
 **[eyv-website-2](https://github.com/Abhinay-code-max/eyv-website-2)** &nbsp;·&nbsp; <samp>javascript, react</samp><br>
