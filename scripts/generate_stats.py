@@ -430,53 +430,68 @@ def fetch_leetcode(username):
 def draw_leetcode(lc):
     H = 136
     p = [head(WIDTH, H)]
-    
-    if not lc:
+
+    if lc is None:
         p.append(f'<g opacity="0">{fade(0.10)}'
-                 + label(LEFT, 40, "LEETCODE // PROFILE", 13, "e-f", extra=' font-weight="600"')
-                 + label(LEFT, 64, "Problems solved & ranking tracking active", 11, "m-f")
+                 + label(LEFT, 40, "LEETCODE // OFFLINE", 13, "e-f", extra=' font-weight="600"')
+                 + label(LEFT, 64, "Could not reach leetcode.com", 11, "m-f")
                  + '</g>')
         p.append("</svg>")
         return "".join(p)
-    
-    # Left Hero: Solved count & Rank
-    rank_str = f"global rank #{lc['ranking']:,}" if lc['ranking'] and lc['ranking'] < 5000000 else "leetcode active"
+
+    total_solved = lc["total_solved"]
+
+    if total_solved == 0:
+        hero_label = "0"
+        hero_sub   = f"of {lc['total_questions']} problems"
+        hero_note  = "ready to grind"
+    else:
+        rank_val   = lc.get("ranking", 0)
+        hero_label = str(total_solved)
+        hero_sub   = f"solved of {lc['total_questions']}"
+        hero_note  = (f"rank #{rank_val:,}" if rank_val and rank_val < 5000000 else "leetcode active")
+
     p.append(f'<g opacity="0">{fade(0.10)}'
-             + label(LEFT, 46, f"{lc['total_solved']}", 42, "e-f", extra=' font-weight="600"')
-             + label(LEFT, 66, f"solved of {lc['total_questions']}", 11, "m-f")
-             + label(LEFT, 86, rank_str, 10, "a-f")
+             + label(LEFT, 46, hero_label, 42, "e-f", extra=' font-weight="600"')
+             + label(LEFT, 66, hero_sub, 11, "m-f")
+             + label(LEFT, 86, hero_note, 10, "a-f")
              + '</g>')
 
     mid_x = 180
-    p.append(f'<line x1="{mid_x}" y1="18" x2="{mid_x}" y2="{H-18}" class="u-s" stroke-width="1" opacity="0">{fade(0.20)}</line>')
+    p.append(f'<line x1="{mid_x}" y1="18" x2="{mid_x}" y2="{H-18}" '
+             f'class="u-s" stroke-width="1" opacity="0">{fade(0.20)}</line>')
 
     diffs = [
-        ("Easy", lc["easy_solved"], lc["easy_total"], "#00b8a3"),
-        ("Medium", lc["med_solved"], lc["med_total"], "#ffc01e"),
-        ("Hard", lc["hard_solved"], lc["hard_total"], "#ef4743"),
+        ("Easy",   lc["easy_solved"],  lc["easy_total"],  "#00b8a3"),
+        ("Medium", lc["med_solved"],   lc["med_total"],   "#ffc01e"),
+        ("Hard",   lc["hard_solved"],  lc["hard_total"],  "#ef4743"),
     ]
     bar_start_x = mid_x + 80
-    bar_max_w = WIDTH - bar_start_x - 70
-    
+    bar_max_w   = WIDTH - bar_start_x - 70
+
     for i, (name, solved, total, color) in enumerate(diffs):
-        y = 30 + i * 32
-        pct = (solved / total) if total else 0
-        w_val = max(bar_max_w * pct, 2)
-        
+        y     = 30 + i * 32
+        pct   = (solved / total) if total else 0
+        w_val = bar_max_w * pct
+
         p.append(f'<g opacity="0">{fade(0.20 + i * 0.12)}'
                  + label(mid_x + 20, y + 9, name, 11, "e-f")
                  + label(WIDTH - 10, y + 9, f"{solved}/{total}", 11, "m-f", "end")
                  + '</g>')
-        
-        p.append(f'<rect x="{bar_start_x}" y="{y}" width="{bar_max_w}" height="8" rx="4" class="w"/>')
-        
-        cid = f"lcbar{i}"
-        clip, cursor = wipe(cid, bar_start_x, y, bar_max_w, 8, 0.40 + i * 0.15, 0.8)
-        p.append(clip)
-        p.append(f'<g clip-path="url(#{cid})">'
-                 + f'<rect x="{bar_start_x}" y="{y}" width="{w_val:.1f}" height="8" rx="4" fill="{color}"/>'
-                 + '</g>')
-        p.append(cursor)
+
+        p.append(f'<rect x="{bar_start_x}" y="{y}" width="{bar_max_w}" '
+                 f'height="8" rx="4" class="w"/>')
+
+        if w_val > 0:
+            cid = f"lcbar{i}"
+            clip, cursor = wipe(cid, bar_start_x, y, bar_max_w, 8,
+                                0.40 + i * 0.15, 0.8)
+            p.append(clip)
+            p.append(f'<g clip-path="url(#{cid})">'
+                     + f'<rect x="{bar_start_x}" y="{y}" width="{w_val:.1f}" '
+                     + f'height="8" rx="4" fill="{color}"/>'
+                     + '</g>')
+            p.append(cursor)
 
     p.append("</svg>")
     return "".join(p)
@@ -580,7 +595,7 @@ def draw_terminal():
         p.append(cursor)
         
         p.append(f'<g opacity="0">{fade(d_cmd + 0.55, 0.40)}'
-                 + label(32, y_out, f"↳ {output}", 11, "e-f")
+                 + label(32, y_out, f"  {output}", 11, "e-f")
                  + '</g>')
 
     p.append("</svg>")
