@@ -70,7 +70,7 @@ FONT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "fonts")
 WIDTH = 620
 LEFT = 34
 REVEAL = 1.30
-RAMP = [" ", ".", "o", "O", "0"]
+RAMP = [" ", ":", "+", "#", "@"]
 MON = ["jan", "feb", "mar", "apr", "may", "jun",
        "jul", "aug", "sep", "oct", "nov", "dec"]
 
@@ -341,7 +341,7 @@ def draw_year(s):
                 return i
         return 4
 
-    p = [head(WIDTH, H)]
+    p = [head(WIDTH, H, extra="text{font-variant-ligatures:none;font-feature-settings:'liga' 0,'calt' 0,'kern' 0}")]
     p.append(f'<g opacity="0">{fade(0.10)}'
              + label(pad_l, 16, "THE YEAR", 9, "m-f",
                      extra=' letter-spacing="1.3"')
