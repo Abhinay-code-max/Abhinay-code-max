@@ -1,31 +1,51 @@
 <div align="center">
 
-<img src="./portrait.png" width="220" alt="Abhinay Kandrika"/>
+<img src="./portrait_card.svg" width="320" alt="Abhinay Kandrika // System Online"/>
 
 <br/>
 
-<img src="./stats.svg" width="620" alt="Contributions in the last year"/>
-
 [github](https://github.com/Abhinay-code-max) &nbsp;·&nbsp;
-[leetcode](https://leetcode.com/u/abhinaycodemax/) &nbsp;·&nbsp;
+[leetcode](https://leetcode.com/u/Abhinay-code-max) &nbsp;·&nbsp;
 [linkedin](https://www.linkedin.com/in/abhinay-kandrika-5239a442a/) &nbsp;·&nbsp;
-[instagram](https://www.instagram.com/abhinay_2207/) &nbsp;·&nbsp;
+[instagram](https://www.instagram.com/) &nbsp;·&nbsp;
 [email](mailto:abhinay2207@gmail.com)
+
+<br/><br/>
+
+<img src="./terminal.svg" width="620" alt="Interactive Terminal HUD"/>
+
+</div>
+
+<img src="./hd-activity.svg" width="620" alt="live activity"/>
+
+<div align="center">
+
+<img src="./activity.svg" width="620" alt="Live GitHub Activity"/>
 
 </div>
 
 <img src="./hd-about.svg" width="620" alt="about"/>
 
-> Full-stack developer & AI systems builder.<br>
-> Crafting intelligent tools, responsive applications, and robust architectures.
+> Full-stack developer & AI systems engineer.<br>
+> Transforming complex problems into sharp, high-performance software.
 
 I build fast, test against real workloads, and focus on practical engineering.<br>
-Currently working on autonomous AI assistants, interactive web applications, and<br>
-high-performance backend services.
+Currently working on autonomous AI assistants, interactive web platforms, and<br>
+distributed backend architectures.
 
 <img src="./hd-stack.svg" width="620" alt="stack"/>
 
-<samp>python &nbsp; javascript &nbsp; react &nbsp; node &nbsp; fastapi &nbsp; docker &nbsp; git &nbsp; linux &nbsp; html &nbsp; css</samp>
+```Plain Text
+┌─ CORE LANGUAGES ────────────────────────────────────────────────────────┐
+│  Python · JavaScript · TypeScript · HTML5 · CSS3 · SQL                  │
+├─ AI & BACKEND ──────────────────────────────────────────────────────────┤
+│  FastAPI · Node.js · REST APIs · Docker · Linux · WebSockets            │
+├─ FRONTEND & INTERACTIVE ────────────────────────────────────────────────┤
+│  React.js · Three.js · HTML5 Canvas · Tailwind CSS · Modern Web APIs   │
+├─ TOOLS & PLATFORMS ─────────────────────────────────────────────────────┤
+│  Git · GitHub Actions · Postman · VS Code · Linux Shell                 │
+└─────────────────────────────────────────────────────────────────────────┘
+```
 
 <img src="./hd-projects.svg" width="620" alt="projects"/>
 
@@ -45,6 +65,8 @@ Interactive retro arcade game built with vanilla web technologies.
 
 <div align="center">
 
+<img src="./stats.svg" width="620" alt="Contributions in the last year"/>
+
 <img src="./streak.svg" width="620" alt="Current and longest streak"/>
 
 <img src="./langs.svg" width="620" alt="Top languages by bytes and by repo"/>
@@ -53,11 +75,20 @@ Interactive retro arcade game built with vanilla web technologies.
 
 </div>
 
+<img src="./hd-leetcode.svg" width="620" alt="leetcode"/>
+
+<div align="center">
+
+<img src="./leetcode.svg" width="620" alt="LeetCode Progress & Stats"/>
+
+</div>
+
 <img src="./hd-about-this-page.svg" width="620" alt="about this page"/>
 
 Every graphic here is generated, not embedded from anyone else's server.<br>
-The stat graphics and these section headings are drawn by [a scheduled action](.github/workflows/stats.yml)<br>
-straight from the GitHub GraphQL API, once a day, committing only what changed.
+The stat graphics, activity feed, terminal HUD, LeetCode card, and section headings<br>
+are drawn directly by [a scheduled action](.github/workflows/stats.yml)<br>
+straight from the GitHub GraphQL & REST APIs and LeetCode GraphQL API, once a day.
 
 They animate with SMIL inside the SVG, because GitHub strips scripts from<br>
 READMEs — and since nothing loads from a third party, nothing here can<br>
@@ -66,6 +97,3 @@ strips CSS, so an image is the only way to put this page's own typeface on them.
 
 The typeface is [JetBrains Mono](scripts/fonts), subset to just the characters<br>
 each graphic draws and inlined as base64.
-
-Language totals cover public repositories only. `year.svg` uses the character<br>
-ramp: `:` `+` `#` `@`, quiet to loud.
