@@ -88,26 +88,21 @@ Interactive retro arcade game built with vanilla web technologies.
 <div align="center">
 
 <!-- ── 1. CONTRIBUTION HEATMAP (centerpiece) ──────────────────── -->
+<!-- Service: ghchart.rshah.org — no auth, pure SVG, years of uptime -->
 
 <img
-  src="https://github-readme-activity-graph.vercel.app/graph?username=Abhinay-code-max&bg_color=0d1117&color=58a6ff&line=1f6feb&point=58a6ff&area_color=1f6feb&area=true&hide_border=true&custom_title=Contribution+Activity"
+  src="https://ghchart.rshah.org/58a6ff/Abhinay-code-max"
   width="620"
-  alt="Contribution Activity — Last 12 Months"
+  alt="GitHub Contribution Calendar"
 />
 
 <br/>
 
-<!-- ── 2. GITHUB STATS + STREAK (side by side) ────────────────── -->
+<!-- ── 2. STREAK + STATS side by side ────────────────────────── -->
+<!-- Services: streak-stats.demolab.com + github-profile-summary-cards -->
 
 <table>
   <tr>
-    <td align="center">
-      <img
-        src="https://github-readme-stats.vercel.app/api?username=Abhinay-code-max&show_icons=true&theme=github_dark&hide_border=true&include_all_commits=true&count_private=true&rank_icon=github&custom_title=GitHub+Stats"
-        width="300"
-        alt="GitHub Stats"
-      />
-    </td>
     <td align="center">
       <img
         src="https://streak-stats.demolab.com?user=Abhinay-code-max&theme=github-dark-blue&hide_border=true&date_format=j%20M%5B%20Y%5D"
@@ -115,22 +110,19 @@ Interactive retro arcade game built with vanilla web technologies.
         alt="Contribution Streak"
       />
     </td>
+    <td align="center">
+      <img
+        src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=Abhinay-code-max&theme=github_dark"
+        width="300"
+        alt="GitHub Stats"
+      />
+    </td>
   </tr>
 </table>
 
 <br/>
 
-<!-- ── 3. TOP LANGUAGES ────────────────────────────────────────── -->
-
-<img
-  src="https://github-readme-stats.vercel.app/api/top-langs/?username=Abhinay-code-max&theme=github_dark&hide_border=true&layout=compact&langs_count=10&custom_title=Top+Languages"
-  width="620"
-  alt="Top Languages"
-/>
-
-<br/>
-
-<!-- ── 4. PROFILE SUMMARY — commit timeline bar chart ─────────── -->
+<!-- ── 3. COMMIT TIMELINE bar chart (full width) ─────────────── -->
 
 <img
   src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Abhinay-code-max&theme=github_dark"
@@ -138,16 +130,10 @@ Interactive retro arcade game built with vanilla web technologies.
   alt="Commit Activity Timeline"
 />
 
-<!-- ── 5. FOUR DEEP-DIVE CARDS ────────────────────────────────── -->
+<!-- ── 4. THREE DEEP-DIVE CARDS ──────────────────────────────── -->
 
 <table>
   <tr>
-    <td align="center">
-      <img
-        src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=Abhinay-code-max&theme=github_dark"
-        alt="Stats"
-      />
-    </td>
     <td align="center">
       <img
         src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=Abhinay-code-max&theme=github_dark&utcOffset=5.5"
@@ -168,15 +154,6 @@ Interactive retro arcade game built with vanilla web technologies.
     </td>
   </tr>
 </table>
-
-<br/>
-
-<!-- ── 6. ACHIEVEMENT TROPHIES ────────────────────────────────── -->
-
-<img
-  src="https://github-profile-trophy.vercel.app/?username=Abhinay-code-max&theme=darkhub&no-frame=true&row=1&column=6&margin-w=6"
-  alt="GitHub Trophies"
-/>
 
 </div>
 
