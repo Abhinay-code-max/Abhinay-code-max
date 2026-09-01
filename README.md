@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./portrait.png" width="220" alt="Abhinay Kandrika"/>
+<img src="./portrait_card.svg" width="320" alt="Abhinay Kandrika // System Online"/>
 
 <br/>
 

@@ -561,9 +561,9 @@ def draw_terminal():
     p.append(label(W//2, 18, "abhinay@core-system: ~ (zsh)", 11, "m-f", "middle"))
 
     lines = [
-        ("$ whoami", "Abhinay Kandrika [AI & Full-Stack Engineer]", 0.30, 0.60),
-        ("$ current_focus", "Autonomous AI Agents · Scalable Backends · Distributed Web", 1.10, 0.75),
-        ("$ status --live", "⚡ Shipping fast & building intelligent systems", 2.05, 0.65),
+        ("$ whoami", "> Abhinay Kandrika [AI &amp; Full-Stack Engineer]", 0.30, 0.60),
+        ("$ current_focus", "> Autonomous AI Agents | Scalable Backends | Distributed Web", 1.10, 0.75),
+        ("$ status --live", "> [ACTIVE] Shipping fast &amp; building intelligent systems", 2.05, 0.65),
     ]
 
     for i, (cmd, output, d_cmd, d_out) in enumerate(lines):
