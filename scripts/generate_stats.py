@@ -127,8 +127,9 @@ def wipe(cid, x, y, w, h, delay, dur=REVEAL):
 
 def label(x, y, text, size=11, cls="m-f", anchor="start", extra=""):
     a = f' text-anchor="{anchor}"' if anchor != "start" else ""
+    safe_text = str(text).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;") if "&amp;" not in str(text) else str(text)
     return (f'<text x="{x}" y="{y}" class="{cls}" font-size="{size}"{a}'
-            f'{extra}>{text}</text>')
+            f'{extra}>{safe_text}</text>')
 
 def hbar(x, y, w, h, cls="d-f", r=3.0):
     if w <= 0.6:
