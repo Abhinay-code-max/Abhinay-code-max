@@ -1,0 +1,69 @@
+<div align="center">
+
+<img src="./portrait.png" width="220" alt="Abhinay Kandrika"/>
+
+<br/>
+
+<img src="./stats.svg" width="620" alt="Contributions in the last year"/>
+
+[github](https://github.com/Abhinay-code-max) &nbsp;·&nbsp;
+[linkedin](https://www.linkedin.com/in/) &nbsp;·&nbsp;
+[email](mailto:abhinay2207@gmail.com)
+
+</div>
+
+<img src="./hd-about.svg" width="620" alt="about"/>
+
+> Full-stack developer & AI systems builder.<br>
+> Crafting intelligent tools, responsive applications, and robust architectures.
+
+I build fast, test against real workloads, and focus on practical engineering.<br>
+Currently working on autonomous AI assistants, interactive web applications, and<br>
+high-performance backend services.
+
+<img src="./hd-stack.svg" width="620" alt="stack"/>
+
+<samp>python &nbsp; javascript &nbsp; react &nbsp; node &nbsp; fastapi &nbsp; docker &nbsp; git &nbsp; linux &nbsp; html &nbsp; css</samp>
+
+<img src="./hd-projects.svg" width="620" alt="projects"/>
+
+**[JARVIS-FOR-WEBISTE](https://github.com/Abhinay-code-max/JARVIS-FOR-WEBISTE)** &nbsp;·&nbsp; <samp>python, ai</samp><br>
+Intelligent voice and text assistant for web environments and task automation.
+
+**[eyv-website-2](https://github.com/Abhinay-code-max/eyv-website-2)** &nbsp;·&nbsp; <samp>javascript, react</samp><br>
+Modern responsive web platform and frontend architecture.
+
+**[backend-assignment](https://github.com/Abhinay-code-max/backend-assignment)** &nbsp;·&nbsp; <samp>python, backend</samp><br>
+Scalable API architecture, data validation, and backend microservices.
+
+**[pac-man-game-](https://github.com/Abhinay-code-max/pac-man-game-)** &nbsp;·&nbsp; <samp>javascript, canvas</samp><br>
+Interactive retro arcade game built with vanilla web technologies.
+
+<img src="./hd-stats.svg" width="620" alt="stats"/>
+
+<div align="center">
+
+<img src="./streak.svg" width="620" alt="Current and longest streak"/>
+
+<img src="./langs.svg" width="620" alt="Top languages by bytes and by repo"/>
+
+<img src="./year.svg" width="620" alt="The last year, one character per day"/>
+
+</div>
+
+<img src="./hd-about-this-page.svg" width="620" alt="about this page"/>
+
+Every graphic here is generated, not embedded from anyone else's server.<br>
+The stat graphics and these section headings are drawn by [a scheduled action](.github/workflows/stats.yml)<br>
+straight from the GitHub GraphQL API, once a day, committing only what changed.
+
+They animate with SMIL inside the SVG, because GitHub strips scripts from<br>
+READMEs — and since nothing loads from a third party, nothing here can<br>
+rate-limit or go dark. The headings are SVGs for the same reason: GitHub also<br>
+strips CSS, so an image is the only way to put this page's own typeface on them.
+
+The typeface is [JetBrains Mono](scripts/fonts), subset to just the characters<br>
+each graphic draws and inlined as base64.
+
+Language totals cover public repositories only. `year.svg` uses the character<br>
+ramp: `:` `+` `#` `@`, quiet to loud.

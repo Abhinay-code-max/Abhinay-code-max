@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+*.class
+.venv/
+env/
+
+# Scratch & reference
+ref/
+test_stats/
+notion_dump.json
+parsed_guide.md
+parse_notion.py
+
+# Raw images (optional: keep your source headshot private if desired)
+photo.png
+headshot.jpg
+cleaned_cutout.png
