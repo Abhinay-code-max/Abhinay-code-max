@@ -1,16 +1,24 @@
+<!-- GITHUB_USERNAME = "Abhinay-code-max" -->
 <div align="center">
 
-<img src="./portrait_card.svg" width="320" alt="Abhinay Kandrika // System Online"/>
+<table>
+  <tr>
+    <td align="center" valign="middle">
+      <img src="./portrait_card.svg" width="310" alt="Abhinay Kandrika // System Online"/>
+      <br/><br/>
+      <a href="https://github.com/Abhinay-code-max">github</a> &nbsp;·&nbsp;
+      <a href="https://leetcode.com/u/abhinaycodemax/">leetcode</a> &nbsp;·&nbsp;
+      <a href="https://www.linkedin.com/in/abhinay-kandrika-5239a442a/">linkedin</a> &nbsp;·&nbsp;
+      <a href="https://www.instagram.com/abhinay_2207/">instagram</a> &nbsp;·&nbsp;
+      <a href="mailto:abhinay2207@gmail.com">email</a>
+    </td>
+    <td align="center" valign="middle">
+      <img src="./globe.svg" width="295" alt="3D Rotating Contribution Globe · Hyderabad, India"/>
+    </td>
+  </tr>
+</table>
 
 <br/>
-
-[github](https://github.com/Abhinay-code-max) &nbsp;·&nbsp;
-[leetcode](https://leetcode.com/u/abhinaycodemax/) &nbsp;·&nbsp;
-[linkedin](https://www.linkedin.com/in/abhinay-kandrika-5239a442a/) &nbsp;·&nbsp;
-[instagram](https://www.instagram.com/abhinay_2207/) &nbsp;·&nbsp;
-[email](mailto:abhinay2207@gmail.com)
-
-<br/><br/>
 
 <img src="./terminal.svg" width="620" alt="Interactive Terminal HUD"/>
 

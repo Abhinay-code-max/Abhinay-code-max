@@ -26,11 +26,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_LOGIN: ${{ github.repository_owner }}
           LEETCODE_USER: abhinaycodemax
-        run: python3 scripts/generate_stats.py
+        run: |
+          python3 scripts/generate_stats.py
+          python3 scripts/generate_globe.py
 
       - name: Commit whatever changed
         run: |
-          FILES="stats.svg streak.svg langs.svg year.svg terminal.svg leetcode.svg activity.svg hd-*.svg"
+          FILES="stats.svg streak.svg langs.svg year.svg terminal.svg leetcode.svg activity.svg globe.svg hd-*.svg"
           if [ -z "$(git status --porcelain -- $FILES)" ]; then
             echo "no change"
             exit 0
