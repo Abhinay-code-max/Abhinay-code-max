@@ -70,7 +70,7 @@ FONT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "fonts")
 WIDTH = 620
 LEFT = 34
 REVEAL = 1.30
-RAMP = [" ", ":", "+", "#", "@"]
+RAMP = [" ", ".", "o", "O", "0"]
 MON = ["jan", "feb", "mar", "apr", "may", "jun",
        "jul", "aug", "sep", "oct", "nov", "dec"]
 
@@ -619,7 +619,7 @@ def main():
     if not token:
         sys.exit("GITHUB_TOKEN is not set")
     login = os.environ.get("GH_LOGIN", "Abhinay-code-max")
-    lc_user = os.environ.get("LEETCODE_USER", "Abhinay-code-max")
+    lc_user = os.environ.get("LEETCODE_USER", "abhinaycodemax")
     out_dir = os.environ.get("OUT_DIR", ".")
 
     user = fetch_github(login, token)
