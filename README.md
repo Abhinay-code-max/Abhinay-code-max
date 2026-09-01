@@ -7,9 +7,9 @@
 <img src="./stats.svg" width="620" alt="Contributions in the last year"/>
 
 [github](https://github.com/Abhinay-code-max) &nbsp;·&nbsp;
-[leetcode](https://leetcode.com/u/) &nbsp;·&nbsp;
+[leetcode](https://leetcode.com/u/abhinaycodemax/) &nbsp;·&nbsp;
 [linkedin](https://www.linkedin.com/in/abhinay-kandrika-5239a442a/) &nbsp;·&nbsp;
-[instagram](https://www.instagram.com/) &nbsp;·&nbsp;
+[instagram](https://www.instagram.com/abhinay_2207/) &nbsp;·&nbsp;
 [email](mailto:abhinay2207@gmail.com)
 
 </div>
