@@ -674,7 +674,7 @@ def main():
         "activity.svg": draw_activity(act),
     }
     
-    for word in ("about", "terminal", "stack", "projects", "stats", "leetcode", "activity", "about this page"):
+    for word in ("about", "terminal", "stack", "projects", "stats", "dashboard", "leetcode", "activity", "about this page"):
         files[f"hd-{word.replace(' ', '-')}.svg"] = draw_heading(word)
 
     changed = [n for n, svg in files.items() if write(os.path.join(out_dir, n), svg)]
