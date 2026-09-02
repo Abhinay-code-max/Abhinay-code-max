@@ -29,11 +29,10 @@ jobs:
         run: |
           python3 scripts/generate_stats.py
           python3 scripts/generate_globe.py
-          python3 scripts/generate_matrix.py
 
       - name: Commit whatever changed
         run: |
-          FILES="stats.svg streak.svg langs.svg year.svg terminal.svg leetcode.svg activity.svg globe.svg matrix_banner.svg hd-*.svg"
+          FILES="stats.svg streak.svg langs.svg year.svg terminal.svg leetcode.svg activity.svg globe.svg hd-*.svg"
           if [ -z "$(git status --porcelain -- $FILES)" ]; then
             echo "no change"
             exit 0

@@ -1,10 +1,6 @@
 <!-- GITHUB_USERNAME = "Abhinay-code-max" -->
 <div align="center">
 
-<img src="./matrix_banner.svg" width="620" alt="Matrix Binary Rain Stream [Online]"/>
-
-<br/><br/>
-
 <table>
   <tr>
     <td align="center" valign="middle">
